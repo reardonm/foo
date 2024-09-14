@@ -2,9 +2,12 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  my_job:
+  my_first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: My first step
-        uses: actions/setup-node@v4
-
+      # This step checks out a copy of your repository.
+      - name: My first step - check out repository
+        uses: actions/checkout@v4
+      # This step references the directory that contains the action.
+      - name: Use local hello-world-action
+        uses: ./.github/actions/hello-world-action
